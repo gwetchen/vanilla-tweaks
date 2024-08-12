@@ -1,4 +1,6 @@
 ![Build and tests](https://github.com/brndd/vanilla-tweaks/actions/workflows/rust.yml/badge.svg)
+
+# Light version that only applies Nameplate range and Camera skip glitch fix. If you want to use other patches use the original.
  
 # vanilla-tweaks
 

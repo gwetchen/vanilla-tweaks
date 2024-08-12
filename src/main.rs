@@ -17,18 +17,18 @@ use clap::Parser;
 #[clap(long_about = "Applies patches to enhance the functionality of the 1.12.1 World of Warcraft client.
 
 The following patches are currently enabled by default:
+- Nameplate range change
+- Camera rotation skip glitch fix
+
+The following patches are disabled by default, and can be enabled with command line parameters:
+- Maximum camera distance limit increase
 - Widescreen FoV fix
 - Sound in background patch
 - Sound channel count increase
 - Farclip (terrain render distance) maximum value change
 - Frilldistance (grass render distance) change
 - Quickloot by default patch (hold shift for manual loot)
-- Nameplate range change
-- Large address aware patch
-- Camera rotation skip glitch fix
-
-The following patches are disabled by default, and can be enabled with command line parameters:
-- Maximum camera distance limit increase")]
+- Large address aware patch")]
 struct Args {
     /// Path to WoW.exe.
     #[clap(value_parser)]
@@ -66,23 +66,23 @@ struct Args {
     maxcameradistance: Option<f32>,
 
     /// If set, do not patch FoV.
-    #[clap(long, default_value_t = false, value_parser)]
+    #[clap(long, default_value_t = true, value_parser)]
     no_fov: bool,
 
     /// If set, do not patch farclip.
-    #[clap(long, default_value_t = false, value_parser)]
+    #[clap(long, default_value_t = true, value_parser)]
     no_farclip: bool,
     
     /// If set, do not patch frilldistance.
-    #[clap(long, default_value_t = false, value_parser)]
+    #[clap(long, default_value_t = true, value_parser)]
     no_frilldistance: bool,
 
     /// If set, do not patch sound in background.
-    #[clap(long, default_value_t = false, value_parser)]
+    #[clap(long, default_value_t = true, value_parser)]
     no_sound_in_background: bool,
 
     /// If set, do not patch quickloot.
-    #[clap(long, default_value_t = false, value_parser)]
+    #[clap(long, default_value_t = true, value_parser)]
     no_quickloot: bool,
 
     /// If set, do not patch nameplate distance.
@@ -90,12 +90,12 @@ struct Args {
     no_nameplatedistance: bool,
 
     /// If set, do not patch the number of sound channels.
-    #[clap(long, default_value_t = false, value_parser)]
+    #[clap(long, default_value_t = true, value_parser)]
     no_soundchannels: bool,
 
     /// If set, do not patch the executable to be Large Address Aware.
     /// You may want to enable this if playing on incredibly low-end hardware with less than 3 GiB RAM.
-    #[clap(long, default_value_t = false, value_parser)]
+    #[clap(long, default_value_t = true, value_parser)]
     no_largeaddressaware: bool,
 
     /// If set, do not patch the fix for the camera sometimes skipping to a random direction when rotated.
